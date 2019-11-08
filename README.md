@@ -16,3 +16,10 @@ Class Project on Recommending a restaruant in Las Vegas
 https://www.kaggle.com/yelp-dataset/yelp-dataset/download
 The original datasource is:
 https://www.yelp.com/dataset
+
+### Exploratory Analysis
+* Checking the complete dataset
+* Creating a subset of the dataset as it is too large
+  * Choosing the required variables
+  * Choosing the required parameters for subset - City, Restuarants and Useful reviews
+* Saving the subset into a new json file
