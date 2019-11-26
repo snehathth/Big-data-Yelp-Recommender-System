@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Recommendation System</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="axios.js" defer></script>
+</head>
+<body>
+	<!-- Header -->
+	<header id="header">
+			<div class="logo"><a href="#">Recommendation Engine<span>Big Data Project on Yelp Dataset</span></a></div>
+		</header>
+	
+
+		<!-- Main -->
+		<section id="main">
+				<div class="inner">
+						
+					<!-- One -->
+					<section id="one" class="wrapper style1">
+
+							<div class="image fit flush">
+								<img src="images/pic02.jpg" alt="" />
+							</div>
+							<div class="form-label-group">
+									<header class="special">
+											<h2>Let's get your next 3 recommendations</h2>
+											<p>Please choose your favorite from the list... </p>
+											<form>
+												<div class="form-label-group">
+														<select id="locality-dropdown" name="locality" >
+															</select>
+															<sub>
+																*If you don't find anything appealing. You can refresh the list by clicking on the refresh button
+															  </sub>
+												</div>
+											  </form>	  
+										</header>
+								<h3>How This Works!</h3>
+								<p>
+									Once you click on your favorite restaurant, it triggers a ML model that calculates your next 3 recommendations based on the featrures of the restaurant you choose. It is a simple TFDIF Matrix calculation. You can scroll down to know more. <br>
+									<br>You can either click on <b>REFRESH DATA</b> if you are not happy with the choices or click <b>MAKE RECOMMENDATION</b> to see your next 3 choices.
+								</p>
+								<button id="get-btn">REFRESH Data</button>
+								<button id="post-btn">Make Recommendation</button>
+							</div>
+							
+							<div id="form-label-group" >	
+								
+							</div>
+						</section>
+						
+						<!-- Three -->
+				<section id="three" class="wrapper">
+						<div class="spotlight">
+							<div class="inner">
+									
+									<div class="row">
+										<div class="column">
+										  <div class="card">
+											  <h1 id='firstoption'> First Option</h1>
+											  <p> Place Name <br> Cuisine <br> Price Range</p>
+										  </div>
+										</div>
+										<div class="column">
+										  <div class="card">
+											  <h1 id='secondoption'> Second Option</h1>
+											<p> Place Name <br> Cuisine <br> Price Range</p>
+										</div>
+										</div>
+										<div class="column">
+										  <div class="card">
+												<h1 id='thirdoption'> Third Option</h1>
+												<p> Place Name <br> Cuisine <br> Price Range</p>
+										  </div>
+										</div>
+									  </div>	
+							</div>
+							<div class="image flush">
+									<iframe
+									width="450"
+									height="450"
+									frameborder="0" style="border:0"
+									src="https://www.google.com/maps/embed/v1/directions
+									?key=my-key
+									&origin=6125 Spring Mountain Rd, Las vegas	
+									&destination=Monte Carlo, 3770
+									Las Vegas Blvd S
+									&avoid=tolls|highways" allowfullscreen>
+								  </iframe>
+								
+							</div>
+						</div>
+						<div class="spotlight alt">
+							<div class="image flush"><img src="images/pic07.jpg" alt="" /></div>
+							<div  class="inner">
+								<h3>The models behind the working</h3>
+								<p>Curabitur eget semper ante. Morbi eleifend ultricies est, a blandit diam vehicula vel. Vestibulum porttitor nisi quis viverra hendrerit. Suspendisse vel volutpat nibh, vel elementum lacus. Maecenas commodo pulvinar dui, at cursus metus imperdiet vel.</p>
+							</div>
+						</div>
+						<div class="spotlight">
+							<div class="image flush"><img src="images/pic08.jpg" alt="" /></div>
+							<div class="inner">
+								<h3>Extra Resources and What you need to know!</h3>
+								<p>Curabitur eget semper ante. Morbi eleifend ultricies est, a blandit diam vehicula vel. Vestibulum porttitor nisi quis viverra hendrerit. Suspendisse vel volutpat nibh, vel elementum lacus. Maecenas commodo pulvinar dui, at cursus metus imperdiet vel.</p>
+							</div>
+						</div>
+					</section>
+	
+				</div>
+			</section>
+
+			<!-- Footer -->
+			<footer id="footer">
+					<div class="container">
+						<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+						</ul>
+					</div>
+					<div class="copyright">
+							&copy; Recommendation Engine by the big data team </a>
+						--></div>
+				</footer>
+	
+			<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.poptrox.min.js"></script>
+				<script src="assets/js/skel.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
+						
+				</div>
+		</section>
+
+
+</body>
+</html>
