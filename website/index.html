@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/loading-bar.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Recommendation System</title>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="axios.js" defer></script>
+  <script src="loading-bar.js" defer></script>
 </head>
 <body>
 	<!-- Header -->
@@ -35,23 +37,25 @@
 														<select id="locality-dropdown" name="locality" >
 															</select>
 															<sub>
-																*If you don't find anything appealing. You can refresh the list by clicking on the refresh button
+																*If you don't find anything appealing. You can refresh the list by clicking on the refresh button<br><br><br>
 															  </sub>
+															  <button id="get-btn">REFRESH Data</button>
 												</div>
 											  </form>	  
 										</header>
+										<hr>
 								<h3>How This Works!</h3>
 								<p>
-									Once you click on your favorite restaurant, it triggers a ML model that calculates your next 3 recommendations based on the featrures of the restaurant you choose. It is a simple TFDIF Matrix calculation. You can scroll down to know more. <br>
-									<br>You can either click on <b>REFRESH DATA</b> if you are not happy with the choices or click <b>MAKE RECOMMENDATION</b> to see your next 3 choices.
+									Once you click on your favorite restaurant, it triggers a ML model that calculates your next 3 recommendations based on the features of the restaurant you choose. It is a simple TFD-IF Matrix calculation. You can scroll down to know more. <br>
+									<br>You can either click on <b>REFRESH DATA</b> if you are not happy with the choices or click <b>MAKE RECOMMENDATION</b> to see your next 3 choices.<br>
 								</p>
-								<button id="get-btn">REFRESH Data</button>
-								<button id="post-btn">Make Recommendation</button>
-							</div>
-							
-							<div id="form-label-group" >	
 								
+								<button id="post-btn" onclick="move()">Make Recommendation</button>
+								<p><br></p>
 							</div>
+							<div id="myProgress" class="special">
+								<div id="myBar"></div>
+							  </div>
 						</section>
 						
 						<!-- Three -->
@@ -60,37 +64,36 @@
 							<div class="inner">
 									
 									<div class="row">
+										<div class="form-label-group">
+											<p> We are going to assume that you are staying at the <b> Downtown Grand Hotel & Casino </b> right in the heart of Las Vegas</p>
+										</div>
 										<div class="column">
-										  <div class="card">
-											  <h1 id='firstoption'> First Option</h1>
-											  <p> Place Name <br> Cuisine <br> Price Range</p>
+										  <div class="card" id='restro1'>
+											  <h1 id='option1'> Your First Option</h1>
+											  <p id='para1'> will appear here <br> More details <br> will follow...</p>
 										  </div>
 										</div>
-										<div class="column">
+										<div class="column" id='restro2'>
 										  <div class="card">
-											  <h1 id='secondoption'> Second Option</h1>
-											<p> Place Name <br> Cuisine <br> Price Range</p>
+											  <h1 id='option2'> Your Second Option</h1>
+											<p id='para2'> will appear here <br> More details <br> will follow...</p>
 										</div>
 										</div>
-										<div class="column">
+										<div class="column" id='restro3'>
 										  <div class="card">
-												<h1 id='thirdoption'> Third Option</h1>
-												<p> Place Name <br> Cuisine <br> Price Range</p>
+												<h1 id='option3'> Your Third Option</h1>
+												<p id='para3'> will appear here <br> More details <br> will follow...</p>
 										  </div>
 										</div>
 									  </div>	
 							</div>
 							<div class="image flush">
-									<iframe
-									width="450"
-									height="450"
+									<iframe id="map"
+									width="500"
+									height="500"
 									frameborder="0" style="border:0"
-									src="https://www.google.com/maps/embed/v1/directions
-									?key=my-key
-									&origin=6125 Spring Mountain Rd, Las vegas	
-									&destination=Monte Carlo, 3770
-									Las Vegas Blvd S
-									&avoid=tolls|highways" allowfullscreen>
+									src="https://www.google.com/maps/embed/v1/place?key=my-key
+									&q=Downtown Grand Hotel Casino,206 N 3rd St, Las Vegas, NV 89101" allowfullscreen>
 								  </iframe>
 								
 							</div>
@@ -98,15 +101,22 @@
 						<div class="spotlight alt">
 							<div class="image flush"><img src="images/pic07.jpg" alt="" /></div>
 							<div  class="inner">
-								<h3>The models behind the working</h3>
-								<p>Curabitur eget semper ante. Morbi eleifend ultricies est, a blandit diam vehicula vel. Vestibulum porttitor nisi quis viverra hendrerit. Suspendisse vel volutpat nibh, vel elementum lacus. Maecenas commodo pulvinar dui, at cursus metus imperdiet vel.</p>
+								<h3>The models behind</h3>
+								<p>We have implemented a simple TF-IDF matrix. It is usually used in text analysis. Here we used different features as words to analyze our restaurants. When you enter your favorite restuarant, the matrix spins up a ranking system with restaurants that are close to your choice in terms of 
+										the price range, cuisine, if they serve alcohol, the dress code, if WiFi is available and a few other factors. Later, we have a function that sorts the matrix based on distance and gives the top 3 restuarants matching the chosen restuarant
+									</p>
 							</div>
 						</div>
 						<div class="spotlight">
 							<div class="image flush"><img src="images/pic08.jpg" alt="" /></div>
 							<div class="inner">
 								<h3>Extra Resources and What you need to know!</h3>
-								<p>Curabitur eget semper ante. Morbi eleifend ultricies est, a blandit diam vehicula vel. Vestibulum porttitor nisi quis viverra hendrerit. Suspendisse vel volutpat nibh, vel elementum lacus. Maecenas commodo pulvinar dui, at cursus metus imperdiet vel.</p>
+								<p>You can take a look at the code on <a href="https://github.com/snehathth/Big-data-Yelp-Recommender-System" target="_blank">Our github Repo</a> It contains details on the code and our models. <br> 
+									Some of the resources that we found useful are : <br>
+									<a href="http://infolab.stanford.edu/~ullman/mmds/ch9.pdf" target="_blank">Recommendation Systems: Chapter9</a><br>
+									<a href="https://towardsdatascience.com/introduction-to-recommender-systems-6c66cf15ada" target="_blank">Introduction to Recommendation System</a><br>
+									<a href="https://lyst.github.io/lightfm/docs/home.html" target="_blank">LightFM Recommenmdation Algorithm</a><br>
+								</p>
 							</div>
 						</div>
 					</section>
@@ -118,14 +128,13 @@
 			<footer id="footer">
 					<div class="container">
 						<ul class="icons">
-							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+							<li><a href="https://github.com/snehathth/Big-data-Yelp-Recommender-System" class="icon fa-github"><span class="label">Github</span></a></li>
+							<li><a href="mailto:snehathanasekaran@gmail.com" class="icon fa-email"><span class="label">Email</span></a></li>
 						</ul>
 					</div>
 					<div class="copyright">
-							&copy; Recommendation Engine by the big data team </a>
+							&copy; Recommendation Engine by the big data team. Website & Data Analysis by <a href="https://github.com/snehathth/" target="_blank">Sneha Thanasekaran.</a> Design by<a href="https://templated.co">TEMPLATED</a>
+					
 						--></div>
 				</footer>
 	
